@@ -1,6 +1,6 @@
 const { ObjectId } = require('mongodb')
 var mongoClient = require("mongodb").MongoClient
-var url = "mongodb+srv://nhn2002:<201794nam>@cluster0.vmxuawg.mongodb.net/test"
+var url = "mongodb+srv://nhn11102:201794nam@1644lab.ahrqlwh.mongodb.net/test"
 
 async function getDB(){
     let client = await mongoClient.connect(url);
