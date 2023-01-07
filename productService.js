@@ -31,9 +31,9 @@ async function findProduct(id){
     return productToEdit;
 }
 
-async function updateProduct(id, name, price, pic, quantity){
+async function updateProduct(id, name, price, pic, quantity,category){
     let db = await getDB();
-    await db.collection("products").updateOne( {_id: ObjectId(id)} , {$set: {"name": name, "price":price, "quantity": quantity, "pic": pic}} );
+    await db.collection("products").updateOne( {_id: ObjectId(id)} , {$set: {"name": name, "price":price, "quantity": quantity, "pic": pic, "category":category}} );
 }
 
 async function searchProduct(name){
@@ -42,17 +42,7 @@ async function searchProduct(name){
     return results;
 }
 
-async function ascProduct(){
-    let db = await getDB();
-    const results = await db.collection("products").find().sort({price:1}).toArray();
-    return results;
-}
-
-async function descProduct(){
-    let db = await getDB();
-    const results = await db.collection("products").find().sort({price:-1}).toArray();
-    return results;
-}
 
 
-module.exports = {createNewProduct, viewAllProduct, deleteProduct, findProduct,  updateProduct, searchProduct, ascProduct, descProduct}
+
+module.exports = {createNewProduct, viewAllProduct, deleteProduct, findProduct,  updateProduct, searchProduct}
