@@ -12,51 +12,40 @@
 </head>
 <body>
     <div class="header">
-        <div class="mt-12 mb-4 bg-light d-flex justify-content-between">
+        <div class="mt-12 mb-4 bg-success d-flex justify-content-between ">
             <ul class="nav justify-content-center">
-                <li class="nav-item h6">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGCSqp3NDnNARo6y7mc9tKnZ95mXtgGkzOgw&usqp=CAU" alt="" width="80" height="80"> 
+                <li class="nav-item h6 m-0 my-3">
+                    <a class="nav-link text-body" href="/">Home</a>
                 </li>
                 <li class="nav-item h6 m-0 my-3">
-                    <a class="nav-link" href="/">Home</a>
+                    <a class="nav-link text-body" href="/products">Management</a>
                 </li>
                 <li class="nav-item h6 m-0 my-3">
-                    <a class="nav-link" href="/products">Management</a>
-                </li>
-                <li class="nav-item h6 m-0 my-3">
-                    <select class="form-select" aria-label=".form-select-sm example" onchange="window.location.href=this.value">
-                        <option selected>Open this select menu</option>
-                        <option value="/asc">High price products</option>
-                        <option value="/desc">Low price products</option>
-                    </select>
+                    <div class="search-card d-flex ">
+                        <form class="d-flex align-items-center" action="/search" method="post">
+                         <input class="form-control " type="text"  name="search">
+                         <input class="btn btn-primary" type="submit" value="Search">
+                        </form>
+                    </div>
                 </li>
                 </ul>
-                <div class="search-card d-flex">
-                <form class="d-flex align-items-center" action="/search" method="post">
-                    <input class="form-control me-2" type="text" placeholder="search" name="search">
-                    <input type="submit" value="Search">
-                </form>
-            </div>
+                
         </div>
     </div>
         
 
-    <div class="row row-cols-1 g-4 row-cols-md-4 mt-3 justify-content-center mx-3">
+    <div class="row row-cols-1 g-4 row-cols-md-4 mt-3 justify-content-center mx-3 ">
         {{#each results}}
-            <div class="col">
+            <div class="col-md-3">
                 <div class="card-deck h-100 border ml">
-                    <div class="card-image px-5">
-                            <img src="{{pic}}" alt="" class="card-img-top">
+                    <div class="card mb-4" height="200">
+                            <img src="{{pic}}" alt="" class="card-img-top" width="358" height="358">
                     </div>
                         <div class="card-body border-top bg-light">
-                            <h5 class="card-title">{{name}}</h5>
-                            <p class="card-text">Price: {{price}}$</p>
-                            <input type="number" class="form-control" name="quantity" min="1" max="10" value="1">
-                        <div class="text-center">
-                            <button type="submit" name="addcart" class="btn btn-primary mt-2 text-center">
-                                Buy Now
-                            </button>
-                        </div>
+                            <h4 class="card-title">{{name}}</h4>
+                            <h5>{{category}}</h5>
+                            <span class="h5 mt-auto">Price: {{price}}$</span>
+                            <h6 >Quantity: {{quantity}}</h6>
                     </div>
                 </div>
             </div>
@@ -64,7 +53,7 @@
     </div>
     
     <footer class="mt-12">
-            <p class="text-center bg-light m-0">Toy Store © Copyright 2022. Design by Nguyen Viet Ha.</p>
+            <p class="text-center bg-light m-0"> Store © Copyright 2022.</p>
     </footer>
 </body>
 </html>
